@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A18FAC5B2D9E2ACC00EEC1E8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A18FAC5A2D9E2ACC00EEC1E8 /* SnapKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A18FAC3C2D9E2AB600EEC1E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A18FAC1D2D9E2AB400EEC1E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A18FAC242D9E2AB400EEC1E8;
+			remoteInfo = Sparking;
+		};
+		A18FAC462D9E2AB600EEC1E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A18FAC1D2D9E2AB400EEC1E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A18FAC242D9E2AB400EEC1E8;
+			remoteInfo = Sparking;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A18FAC252D9E2AB400EEC1E8 /* Sparking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sparking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A18FAC3B2D9E2AB600EEC1E8 /* SparkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A18FAC452D9E2AB600EEC1E8 /* SparkingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A18FAC4D2D9E2AB600EEC1E8 /* Exceptions for "Sparking" folder in "Sparking" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A18FAC242D9E2AB400EEC1E8 /* Sparking */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A18FAC272D9E2AB400EEC1E8 /* Sparking */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A18FAC4D2D9E2AB600EEC1E8 /* Exceptions for "Sparking" folder in "Sparking" target */,
+			);
+			path = Sparking;
+			sourceTree = "<group>";
+		};
+		A18FAC3E2D9E2AB600EEC1E8 /* SparkingTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SparkingTests;
+			sourceTree = "<group>";
+		};
+		A18FAC482D9E2AB600EEC1E8 /* SparkingUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SparkingUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A18FAC222D9E2AB400EEC1E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A18FAC5B2D9E2ACC00EEC1E8 /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A18FAC382D9E2AB600EEC1E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A18FAC422D9E2AB600EEC1E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A18FAC1C2D9E2AB400EEC1E8 = {
+			isa = PBXGroup;
+			children = (
+				A18FAC272D9E2AB400EEC1E8 /* Sparking */,
+				A18FAC3E2D9E2AB600EEC1E8 /* SparkingTests */,
+				A18FAC482D9E2AB600EEC1E8 /* SparkingUITests */,
+				A18FAC262D9E2AB400EEC1E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A18FAC262D9E2AB400EEC1E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A18FAC252D9E2AB400EEC1E8 /* Sparking.app */,
+				A18FAC3B2D9E2AB600EEC1E8 /* SparkingTests.xctest */,
+				A18FAC452D9E2AB600EEC1E8 /* SparkingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A18FAC242D9E2AB400EEC1E8 /* Sparking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A18FAC4E2D9E2AB600EEC1E8 /* Build configuration list for PBXNativeTarget "Sparking" */;
+			buildPhases = (
+				A18FAC212D9E2AB400EEC1E8 /* Sources */,
+				A18FAC222D9E2AB400EEC1E8 /* Frameworks */,
+				A18FAC232D9E2AB400EEC1E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A18FAC272D9E2AB400EEC1E8 /* Sparking */,
+			);
+			name = Sparking;
+			packageProductDependencies = (
+				A18FAC5A2D9E2ACC00EEC1E8 /* SnapKit */,
+			);
+			productName = Sparking;
+			productReference = A18FAC252D9E2AB400EEC1E8 /* Sparking.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A18FAC3A2D9E2AB600EEC1E8 /* SparkingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A18FAC532D9E2AB600EEC1E8 /* Build configuration list for PBXNativeTarget "SparkingTests" */;
+			buildPhases = (
+				A18FAC372D9E2AB600EEC1E8 /* Sources */,
+				A18FAC382D9E2AB600EEC1E8 /* Frameworks */,
+				A18FAC392D9E2AB600EEC1E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A18FAC3D2D9E2AB600EEC1E8 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A18FAC3E2D9E2AB600EEC1E8 /* SparkingTests */,
+			);
+			name = SparkingTests;
+			packageProductDependencies = (
+			);
+			productName = SparkingTests;
+			productReference = A18FAC3B2D9E2AB600EEC1E8 /* SparkingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A18FAC442D9E2AB600EEC1E8 /* SparkingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A18FAC562D9E2AB600EEC1E8 /* Build configuration list for PBXNativeTarget "SparkingUITests" */;
+			buildPhases = (
+				A18FAC412D9E2AB600EEC1E8 /* Sources */,
+				A18FAC422D9E2AB600EEC1E8 /* Frameworks */,
+				A18FAC432D9E2AB600EEC1E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A18FAC472D9E2AB600EEC1E8 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A18FAC482D9E2AB600EEC1E8 /* SparkingUITests */,
+			);
+			name = SparkingUITests;
+			packageProductDependencies = (
+			);
+			productName = SparkingUITests;
+			productReference = A18FAC452D9E2AB600EEC1E8 /* SparkingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A18FAC1D2D9E2AB400EEC1E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					A18FAC242D9E2AB400EEC1E8 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					A18FAC3A2D9E2AB600EEC1E8 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = A18FAC242D9E2AB400EEC1E8;
+					};
+					A18FAC442D9E2AB600EEC1E8 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = A18FAC242D9E2AB400EEC1E8;
+					};
+				};
+			};
+			buildConfigurationList = A18FAC202D9E2AB400EEC1E8 /* Build configuration list for PBXProject "Sparking" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A18FAC1C2D9E2AB400EEC1E8;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A18FAC592D9E2ACC00EEC1E8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A18FAC262D9E2AB400EEC1E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A18FAC242D9E2AB400EEC1E8 /* Sparking */,
+				A18FAC3A2D9E2AB600EEC1E8 /* SparkingTests */,
+				A18FAC442D9E2AB600EEC1E8 /* SparkingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A18FAC232D9E2AB400EEC1E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A18FAC392D9E2AB600EEC1E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A18FAC432D9E2AB600EEC1E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A18FAC212D9E2AB400EEC1E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A18FAC372D9E2AB600EEC1E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A18FAC412D9E2AB600EEC1E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A18FAC3D2D9E2AB600EEC1E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A18FAC242D9E2AB400EEC1E8 /* Sparking */;
+			targetProxy = A18FAC3C2D9E2AB600EEC1E8 /* PBXContainerItemProxy */;
+		};
+		A18FAC472D9E2AB600EEC1E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A18FAC242D9E2AB400EEC1E8 /* Sparking */;
+			targetProxy = A18FAC462D9E2AB600EEC1E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A18FAC4F2D9E2AB600EEC1E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sparking/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kibwa.summerjin.Sparking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A18FAC502D9E2AB600EEC1E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sparking/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kibwa.summerjin.Sparking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A18FAC512D9E2AB600EEC1E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A18FAC522D9E2AB600EEC1E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A18FAC542D9E2AB600EEC1E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kibwa.summerjin.SparkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sparking.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sparking";
+			};
+			name = Debug;
+		};
+		A18FAC552D9E2AB600EEC1E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kibwa.summerjin.SparkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sparking.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sparking";
+			};
+			name = Release;
+		};
+		A18FAC572D9E2AB600EEC1E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kibwa.summerjin.SparkingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sparking;
+			};
+			name = Debug;
+		};
+		A18FAC582D9E2AB600EEC1E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kibwa.summerjin.SparkingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sparking;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A18FAC202D9E2AB400EEC1E8 /* Build configuration list for PBXProject "Sparking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A18FAC512D9E2AB600EEC1E8 /* Debug */,
+				A18FAC522D9E2AB600EEC1E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A18FAC4E2D9E2AB600EEC1E8 /* Build configuration list for PBXNativeTarget "Sparking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A18FAC4F2D9E2AB600EEC1E8 /* Debug */,
+				A18FAC502D9E2AB600EEC1E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A18FAC532D9E2AB600EEC1E8 /* Build configuration list for PBXNativeTarget "SparkingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A18FAC542D9E2AB600EEC1E8 /* Debug */,
+				A18FAC552D9E2AB600EEC1E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A18FAC562D9E2AB600EEC1E8 /* Build configuration list for PBXNativeTarget "SparkingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A18FAC572D9E2AB600EEC1E8 /* Debug */,
+				A18FAC582D9E2AB600EEC1E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A18FAC592D9E2ACC00EEC1E8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A18FAC5A2D9E2ACC00EEC1E8 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A18FAC592D9E2ACC00EEC1E8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A18FAC1D2D9E2AB400EEC1E8 /* Project object */;
+}
