@@ -24,6 +24,7 @@ class MinFeeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         searchBar.delegate = self
+        searchBar.placeholder = "주차장을 검색할 ~구를 입력하세요"
     }
     
     // query 이용해서 서치
