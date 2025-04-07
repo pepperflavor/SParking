@@ -7,8 +7,9 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class NavigateViewController: UIViewController {
+class NavigateViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     @IBOutlet weak var expTimeLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -16,22 +17,51 @@ class NavigateViewController: UIViewController {
     var latitude: Double = 0.0
     var longtitude: Double = 0.0
     
+    var currentLatitude: Double = 0.0
+    var currentLongtitude: Double = 0.0
+    
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        let status = locationManager.authorizationStatus
+        print("현재 권한 상태: \(status.rawValue)")
         
-        guard let address = parkingLot?.ADDR else { return }
-        print(address)
-        pinningParkingCoordinates(address) { coordinate in
-            guard let coordinate else {
-                print("좌표 변환 실패")
-                return
-            }
-            self.latitude = coordinate.latitude
-            self.longtitude = coordinate.longitude
+        // Do any additional setup after loading the view.
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        mapView.delegate = self
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first   {
+            currentLongtitude = location.coordinate.longitude
+            currentLatitude  = location.coordinate.latitude
+            print("위치 업데이트")
+            print("위도: \(location.coordinate.latitude), 경도: \(location.coordinate.longitude)")
             
-            self.directionCallRequest(origin: "127.10764191124568,37.402464820205246", destination: "\(self.longtitude),\(self.latitude)")
+            guard let address = parkingLot?.ADDR else { return }
+            
+            pinningParkingCoordinates(address) { coordinate in
+                guard let coordinate else {
+                    print("좌표 변환 실패")
+                    return
+                }
+                
+                self.latitude = coordinate.latitude
+                self.longtitude = coordinate.longitude
+                
+                print(self.longtitude)
+                print(self.latitude)
+                print(self.currentLatitude)
+                print(self.currentLongtitude)
+                
+                self.directionCallRequest(origin: "\(self.currentLongtitude),\(self.currentLatitude)", destination: "\(self.longtitude),\(self.latitude)")
+            }
         }
     }
     
@@ -87,17 +117,16 @@ class NavigateViewController: UIViewController {
                 return
             }
             
-            let coordinate = CLLocationCoordinate2D(latitude: 37.5665, longitude: 126.9780)
+            let coordinate = CLLocationCoordinate2D(latitude: self.currentLatitude, longitude: self.currentLongtitude)
             
             let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
             
             let startAnnotation = MKPointAnnotation()
-            startAnnotation.coordinate = CLLocationCoordinate2D(latitude: 37.5665, longitude: 126.9780)
+            startAnnotation.coordinate = CLLocationCoordinate2D(latitude: self.currentLatitude, longitude: self.currentLongtitude)
             startAnnotation.title = "현재 위치"
             
             let endAnnotation = MKPointAnnotation()
             endAnnotation.coordinate = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longtitude)
-            print(self.latitude, self.longtitude)
             endAnnotation.title = "도착지"
             
             guard let data else { return }
@@ -106,18 +135,53 @@ class NavigateViewController: UIViewController {
                 let routes = root.routes.first
                 let summary = routes?.summary
                 
-                print(summary?.duration)
-                
                 DispatchQueue.main.async {
+                    guard self.mapView != nil else {
+                        print("mapView is nil")
+                        return
+                    }
+                    
                     self.mapView.setRegion(region, animated: true)
                     self.mapView.addAnnotation(startAnnotation)
                     self.mapView.addAnnotation(endAnnotation)
-                    self.expTimeLabel.text = "예상 소요 시간: 약 \((summary?.duration ?? 0)/60)분"
+                    self.expTimeLabel.text = "🚘 예상 소요 시간: 약 \((summary?.duration ?? 0)/60)분"
+                    
+                    let sections = routes?.sections ?? []
+                    for section in sections {
+                        for road in section.roads {
+                            let coordinates = self.convertVertexesToCoordinates(vertexes: road.vertexes)
+                            let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+                            self.mapView.addOverlay(polyline)
+                        }
+                    }
                 }
                 
             } catch {
                 print("JSON 디코딩 실패: \(error.localizedDescription)")
             }
         }.resume()
+    }
+    
+    // vertexes 좌표 배열을 지도에 찍을 수 있게 변환함
+    func convertVertexesToCoordinates(vertexes: [Double]) -> [CLLocationCoordinate2D] {
+        var coordinates: [CLLocationCoordinate2D] = []
+        for i in stride(from: 0, to: vertexes.count, by: 2) {
+            let longitude = vertexes[i]
+            let latitude = vertexes[i + 1]
+            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            coordinates.append(coordinate)
+        }
+        return coordinates
+    }
+    
+    // polyline custom
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let polyline = overlay as? MKPolyline {
+            let renderer = MKPolylineRenderer(polyline: polyline)
+            renderer.strokeColor = .systemBlue
+            renderer.lineWidth = 5
+            return renderer
+        }
+        return MKOverlayRenderer()
     }
 }
