@@ -217,7 +217,8 @@ class UserLocationViewController: UIViewController, UISearchBarDelegate {
                 self.checkArr = self.tempAdds.map{
                     item in return item.components(separatedBy: "(").first ?? item
                 }
-                
+                s
+                // 한꺼번에 올리는 부분 컨펌 받은 곳
                 var totalCount = parkingLots.count
 //                self.pinningParkingCoordinates(from: parkingLots, address : self.checkArr)
                 for item in parkingLots {
