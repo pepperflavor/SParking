@@ -11,12 +11,13 @@ import CoreLocation
 import Contacts // 터치한 곳 string 변환시 필요
 
 class UserLocationViewController: UIViewController, UISearchBarDelegate {
+    // coreloaction으로 현재
     var userLati: Double = 37.5665
     var userLon: Double = 126.9780
     let manager = CLLocationManager()
     let API_KEY = "4965454f67736b6435354d516f646a"
     var tempAdds: [String] = []
-    var searchKey:String = "관악구" // 터치한 곳 주소 추출용ss
+    var searchKey:String = "관악구" // 터치한 곳 주소 추출용, 첫 위치는 시청이니까 상수로 넣어둠
     var tempSearch:String = ""
     let activityIndicator = UIActivityIndicatorView(style: .large)
     let geocoder = CLGeocoder()
@@ -162,8 +163,7 @@ class UserLocationViewController: UIViewController, UISearchBarDelegate {
                 for item in response.mapItems {
                     let annotation = CustomAnnotation(
                         coordinate: item.placemark.coordinate,
-                        title: item.name ?? "주차장",
-                        strURL: "N/A"
+                        title: item.name ?? "주차장"
                     )
     
                     self.mapView.addAnnotation(annotation)
@@ -182,7 +182,7 @@ class UserLocationViewController: UIViewController, UISearchBarDelegate {
             print("검색어가 없습니다.")
             return
         }
-        
+
         // 여기서 로딩화면 출력
         showLoading()
         
@@ -260,6 +260,8 @@ class UserLocationViewController: UIViewController, UISearchBarDelegate {
                         annotation.subtitle = "\(charge) • \(availableCars)"
                         annotation.parkingData = lot
                         
+                        // pin을 annotaionts를 담을 arr를 만들어서 한꺼번에 뿌려줄 수 있게 해야함
+                        //
                         self.mapView.addAnnotation(annotation)
                         print("마커 추가 완료: \(lot.ADDR) -> \(location.coordinate)")
                     }
@@ -351,7 +353,7 @@ extension UserLocationViewController: CLLocationManagerDelegate {
             }
         
             // 새로운 핀 추가
-            let userLocationPin = CustomAnnotation(coordinate: location, title: "현재 내 위치", strURL: "http://www.kibwa.org")
+            let userLocationPin = CustomAnnotation(coordinate: location, title: "현재 내 위치")
             self.mapView.addAnnotation(userLocationPin)
         }
         
@@ -374,15 +376,48 @@ extension UserLocationViewController: CLLocationManagerDelegate {
 }
 
 extension UserLocationViewController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
+        // 유저 위치 그리는 부분
+        if annotation is  MKUserLocation {
+            return nil
+        }
+    
+        if let customAnnotation = annotation as? CustomAnnotation{
+            let identifier = "user"
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: customAnnotation, reuseIdentifier: identifier)
+                annotationView?.canShowCallout = true
+  
+                // 크기 조절
+                if let image = UIImage(named: "marker.png"){
+                    let size = CGSize(width: 50, height: 50)
+                    let render = UIGraphicsImageRenderer(size: size)
+                    let resizedImage = render.image { _ in
+                        image.draw(in: CGRect(origin: .zero, size: size))
+                    }
+                    annotationView?.image = resizedImage
+                }
+                
+
+            }else{
+                annotationView?.annotation = customAnnotation
+            }
+            
+            return annotationView
+        }
+           
+        // 주차장 핀 그리는 부분
         let identifier = "ParkingPin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
 
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-//            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             
             // 주차장 마커 상세
             let infoButton = UIButton(type: .detailDisclosure)
@@ -422,7 +457,6 @@ extension UserLocationViewController: MKMapViewDelegate {
     }
     
     
-    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = view.annotation as? ParkingAnnotation else {return}
         
@@ -436,18 +470,16 @@ extension UserLocationViewController: MKMapViewDelegate {
     }
 }
 
-// 어노테이션 커스텀
+// 유저의 위치 표시용 커스텀 마커
 class CustomAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var subtitle: String?
-    let strURL: String
 
-    init(coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil, strURL: String) {
+    init(coordinate: CLLocationCoordinate2D, title: String? = nil, subtitle: String? = nil) {
         self.coordinate = coordinate
         self.title = title
         self.subtitle = subtitle
-        self.strURL = strURL
     }
 }
 
@@ -455,6 +487,8 @@ class CustomAnnotation: NSObject, MKAnnotation {
 class ParkingAnnotation: MKPointAnnotation {
     var parkingData: Row?
 }
+
+
 
 
 /*

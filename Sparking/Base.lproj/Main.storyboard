@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 1-->
+        <!--내 위치로 찾기-->
         <scene sceneID="2qX-oC-1hu">
             <objects>
                 <viewController id="fHk-2F-E9e" customClass="UserLocationViewController" customModule="Sparking" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                         <viewLayoutGuide key="safeArea" id="vjt-gI-DtY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="WDR-lg-5ij"/>
+                    <tabBarItem key="tabBarItem" title="내 위치로 찾기" id="WDR-lg-5ij"/>
                     <connections>
                         <outlet property="mapView" destination="Sv3-je-mNm" id="30M-Hb-XNJ"/>
                         <outlet property="searchBar" destination="Io1-ru-DCH" id="ZK7-K5-6MY"/>
@@ -62,7 +62,7 @@
             </objects>
             <point key="canvasLocation" x="85" y="1"/>
         </scene>
-        <!--MInFee-->
+        <!--최저요금순 검색-->
         <scene sceneID="Lf8-af-Rk6">
             <objects>
                 <tableViewController id="O3z-CC-KCO" customClass="MinFeeTableViewController" customModule="Sparking" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +120,7 @@
                             <outlet property="delegate" destination="O3z-CC-KCO" id="lrp-B2-dJ7"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="MInFee" id="1TZ-um-P6x"/>
+                    <tabBarItem key="tabBarItem" title="최저요금순 검색" id="1TZ-um-P6x"/>
                     <connections>
                         <outlet property="searchBar" destination="gQo-i0-uO5" id="1RA-Pn-F68"/>
                     </connections>
