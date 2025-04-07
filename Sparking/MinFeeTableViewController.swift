@@ -17,12 +17,6 @@ class MinFeeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         searchBar.delegate = self
     }
     
@@ -47,7 +41,6 @@ class MinFeeTableViewController: UITableViewController {
                 let root = try JSONDecoder().decode(ParkingLotRoot.self, from: data)
                 let getParkingInfo = root.GetParkingInfo
                 let row = getParkingInfo.row
-                print(getParkingInfo)
                 
                 // 데이터가 있을 경우
                 guard !getParkingInfo.row.isEmpty else {
@@ -57,6 +50,7 @@ class MinFeeTableViewController: UITableViewController {
                 
                 // 주차장 정보 가져오기
                 for parking in getParkingInfo.row {
+                    print("-------------------")
                     print("주차장 이름: \(parking.PKLT_NM)")
                     print("주소: \(parking.ADDR)")
                     print("유료/무료: \(parking.PAY_YN_NM)")
@@ -97,6 +91,7 @@ class MinFeeTableViewController: UITableViewController {
         return nil
     }
     
+    // 모달 스타일 설정해서 띄움
     func showModalVC() {
         let vc = ModalViewController()
         
@@ -122,8 +117,6 @@ class MinFeeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MinFee", for: indexPath)
-        
-        // Configure the cell...
         
         guard let sortedParkingLots else { return cell }
         let parkingLot:Row = sortedParkingLots[indexPath.row]
@@ -152,45 +145,44 @@ class MinFeeTableViewController: UITableViewController {
                 canParkingCnt?.text = String(canPkCnt)
             }
         } else if parkingLot.PRK_STTS_NM == "미연계중" {
-            feeImageView?.image = UIImage(named: "unlinked")
-            parkingLotNm?.text = parkingLot.PKLT_NM
-            parkingLotFee?.text = "주차 현황 미제공"
-            canParkingCnt?.text = ""
+            cell.isHidden = true
         }
         
-        print(parkingLot.BSC_PRK_HR)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        guard let status = sortedParkingLots?[indexPath.row].PRK_STTS_NM else { return 0 }
+        
+        if status == "미연계중" {
+            return 0
+        } else if status == "현재~20분이내 연계데이터 존재(현재 주차대수 표현)" {
+            return 100
+        } else {
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let sortedParkingLots else { return }
         let parkingLot = sortedParkingLots[indexPath.row]
-        guard  let targetVC = storyboard?.instantiateViewController(withIdentifier: "parkinginfo") as? ModalViewController else { return }
+        guard  let modalVC = storyboard?.instantiateViewController(withIdentifier: "parkinginfo") as? ModalViewController else { return }
         
         
-        targetVC.parkingLot = parkingLot
-        if let sheetPresentationController = targetVC.sheetPresentationController {
+        modalVC.parkingLot = parkingLot
+        if let sheetPresentationController = modalVC.sheetPresentationController {
              sheetPresentationController.detents = [.medium(), .large()]
              sheetPresentationController.prefersGrabberVisible = true
          }
-        present(targetVC, animated: true)
+        
+        modalVC.listVC = self
+        present(modalVC, animated: true)
     }
     
 }
 
 extension MinFeeTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // 테스트 코드
-        let address1 = "구로구 구로동"
-        let address2 = "영등포구 소래동"
-        
-        print(extractDistrict(from: address1) ?? "구 없음") // 구로구
-        print(extractDistrict(from: address2) ?? "구 없음") // 영등포구
-        
         searchWithQuery(extractDistrict(from: searchBar.text ?? ""))
         searchBar.resignFirstResponder()
     }

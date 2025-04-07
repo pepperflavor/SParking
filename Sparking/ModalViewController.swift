@@ -15,6 +15,7 @@ class ModalViewController: UIViewController {
     @IBOutlet weak var phoNumLabel: UILabel!
     
     var parkingLot: Row?
+    var listVC: UIViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +30,11 @@ class ModalViewController: UIViewController {
     }
     
     @IBAction func actNavigate(_ sender: Any) {
-        
-        
+        self.dismiss(animated: true) {
+            guard let navigateVC = self.storyboard?.instantiateViewController(withIdentifier: "navigation") as? NavigateViewController else { return }
+            navigateVC.parkingLot = self.parkingLot
+            
+            self.listVC?.navigationController?.pushViewController(navigateVC, animated: true)
+        }
     }
-    
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        let targetVC = segue.destination as? NavigateViewController
-        // Pass the selected object to the new view controller.
-        targetVC?.parkingLot = parkingLot
-    }
-
-
 }

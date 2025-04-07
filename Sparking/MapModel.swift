@@ -13,9 +13,18 @@ struct MapRoot: Codable {
 
 struct Route: Codable {
     let summary: Summary
+    let sections: [Section]
 }
 
 struct Summary: Codable {
     let distance: Int
     let duration: Int
+}
+
+struct Section: Codable {
+    let roads: [Road]
+}
+
+struct Road: Codable {
+    let vertexes: [Double]
 }
